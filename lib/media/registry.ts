@@ -257,6 +257,13 @@ export const videoRegistry = {
     label: "Factory walkthrough",
     origin: "unassigned",
   },
+  "corrugated-boxes": {
+    id: "corrugated-boxes",
+    src: "/videos/Cardboard_boxes.mp4",
+    posterId: "product-corrugated-boxes",
+    label: "Corrugated boxes",
+    origin: "fidvi",
+  },
 } satisfies Record<string, VideoAsset>;
 
 export type VideoId = keyof typeof videoRegistry;

@@ -1,6 +1,8 @@
-import { ArrowLink } from "@/components/ui/ArrowLink";
+import { AmbientFilm } from "@/components/media/AmbientFilm";
 import { MediaImage } from "@/components/media/MediaImage";
+import { ArrowLink } from "@/components/ui/ArrowLink";
 import type { Product } from "@/data/types";
+import { getMedia, getVideo } from "@/lib/media";
 import { cn } from "@/lib/cn";
 
 type ProductCardProps = {
@@ -9,6 +11,10 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product, featured = false }: ProductCardProps) {
+  const film = featured ? getVideo("corrugated-boxes") : null;
+  const poster = film?.posterId ? getMedia(film.posterId as "product-corrugated-boxes") : null;
+  const showFilm = Boolean(featured && film?.src && product.slug === "corrugated-boxes");
+
   return (
     <article
       className={cn(
@@ -17,12 +23,20 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
       )}
     >
       <div className={cn("overflow-hidden", featured && "lg:col-span-8")}>
-        <MediaImage
-          mediaId={product.mediaId}
-          ratio="product"
-          className="transition-transform duration-[var(--duration-hover)] ease-[var(--ease-fidvi)] group-hover:scale-[1.03]"
-          sizes={featured ? "(min-width: 1024px) 60vw, 100vw" : "(min-width: 1024px) 28vw, 100vw"}
-        />
+        {showFilm && film?.src ? (
+          <AmbientFilm
+            src={film.src}
+            poster={poster?.src ?? undefined}
+            className="transition-transform duration-[var(--duration-hover)] ease-[var(--ease-fidvi)] group-hover:scale-[1.03]"
+          />
+        ) : (
+          <MediaImage
+            mediaId={product.mediaId}
+            ratio="product"
+            className="transition-transform duration-[var(--duration-hover)] ease-[var(--ease-fidvi)] group-hover:scale-[1.03]"
+            sizes={featured ? "(min-width: 1024px) 60vw, 100vw" : "(min-width: 1024px) 28vw, 100vw"}
+          />
+        )}
       </div>
       <div className={cn(featured ? "lg:col-span-4 lg:pb-1" : "mt-3")}>
         <p className="font-sans text-label text-muted">{product.number}</p>
