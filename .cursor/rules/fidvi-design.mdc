@@ -1,0 +1,29 @@
+---
+description: FIDVI Industries website design and implementation rules
+globs:
+  - "**/*.{tsx,ts,jsx,js,css,scss}"
+alwaysApply: true
+---
+
+# FIDVI Industries Cursor Rules
+
+Read `FIDVI_DESIGN_GUIDE.md` before significant UI changes.
+
+- Build a premium modern manufacturing/business website, not an IT/SaaS website.
+- Use only the FIDVI black, warm-white, gold, charcoal and muted palette unless explicitly approved.
+- Prefer premium serif display typography + clean sans-serif UI/body typography.
+- Use large editorial typography, generous whitespace, thin borders and strong photography.
+- Keep corner radii small; avoid excessive rounded cards and glassmorphism.
+- Animate hierarchy, not everything. Prefer fade-up, image reveal, line reveal, subtle scale and arrow movement.
+- Respect `prefers-reduced-motion`.
+- Prefer real FIDVI factory, machinery, process and product photography.
+- Never invent certifications, clients, statistics, production capacity, specifications or capabilities.
+- Reference images are not automatically FIDVI products unless confirmed.
+- Reuse existing components before creating new ones.
+- Prefer data-driven components over duplicated markup.
+- Keep mobile behavior intentional and test desktop/mobile after major changes.
+- Use semantic HTML, accessible forms, keyboard navigation, visible focus and proper alt text.
+- Do not add unnecessary dependencies.
+- Do not introduce unrelated colors, gradients, SaaS patterns or excessive animations.
+- Do not redesign approved sections while implementing unrelated changes.
+- Keep the final experience premium, restrained, editorial, manufacturing-focused and B2B-oriented.
