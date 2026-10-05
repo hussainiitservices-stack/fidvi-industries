@@ -1,309 +1,320 @@
 import type { MediaAsset, VideoAsset } from "./types";
+const stock = (asset: Omit<MediaAsset, "origin">): MediaAsset => ({
+  origin: "stock",
+  ...asset,
+});
 
-const supplied = (asset: Omit<MediaAsset, "origin">): MediaAsset => ({
+const clientRef = (asset: Omit<MediaAsset, "origin">): MediaAsset => ({
   origin: "client",
   ...asset,
 });
 
 /**
- * Registry of media slots. Real FIDVI files replace `src` here.
+ * Registry of media slots.
  *
- * Every slot below uses a photograph supplied by the client (`origin: "client"`).
- * Alt text describes what each photograph shows. It does not call the scene the
- * FIDVI facility, machinery or product. Switch a slot to `origin: "fidvi"` only
- * once FIDVI confirms the photograph is its own. Width and height match the file.
- * A slot without a photograph takes `src: null` and `origin: "unassigned"`, which
- * renders the empty frame instead of a stand-in.
+ * - `stock` — free stock / Wikimedia photographs. Never describe as FIDVI's own.
+ * - `client` — client-supplied reference photos (often enhanced). Not confirmed FIDVI assets.
+ * Switch a slot to `origin: "fidvi"` only once FIDVI confirms ownership.
+ * See CREDITS.md for source URLs and licenses.
  */
 export const mediaRegistry = {
-  "hero-facility": supplied({
+  "hero-facility": clientRef({
     id: "hero-facility",
-    src: "/images/hero/printer-slotter-factory-floor.webp",
-    alt: "Printer slotter die-cutter with a stack of corrugated board on its feed table, on a packaging factory floor",
+    src: "/images/hero/packaging-factory-floor.webp",
+    alt: "Printer slotter on a packaging factory floor with corrugated board on the feed table",
     category: "hero",
     ratio: "hero",
-    width: 1080,
-    height: 607,
+    width: 2800,
+    height: 1574,
     priority: true,
   }),
-  "product-corrugated-boxes": supplied({
+  "product-corrugated-boxes": stock({
     id: "product-corrugated-boxes",
     src: "/images/products/corrugated-box-open.webp",
-    alt: "Open brown corrugated box with its top flaps raised",
+    alt: "Open corrugated cardboard box with packing tape and scissors on a workbench",
     category: "products",
     ratio: "product",
-    width: 1600,
-    height: 1200,
+    width: 2400,
+    height: 1800,
   }),
-  "product-shipper-cartons": supplied({
+  "product-shipper-cartons": clientRef({
     id: "product-shipper-cartons",
-    src: "/images/products/shipper-carton-with-partitions.webp",
+    src: "/images/products/shipper-cartons-warehouse.webp",
     alt: "Open corrugated shipper carton fitted with cardboard partitions",
     category: "products",
     ratio: "product",
-    width: 837,
-    height: 628,
+    width: 1960,
+    height: 1470,
   }),
-  "product-die-cut-cartons": supplied({
+  "product-die-cut-cartons": clientRef({
     id: "product-die-cut-cartons",
-    src: "/images/products/die-cut-mailer-boxes.webp",
-    alt: "Die-cut corrugated mailer boxes, one as a flat blank and one folded",
+    src: "/images/products/die-cut-flat-boxes.webp",
+    alt: "Die-cut corrugated mailer boxes, one assembled and one as a flat blank",
     category: "products",
     ratio: "product",
-    width: 736,
-    height: 552,
+    width: 2208,
+    height: 1656,
   }),
-  "product-mono-cartons": supplied({
+  "product-mono-cartons": stock({
     id: "product-mono-cartons",
-    src: "/images/products/mono-cartons.webp",
-    alt: "Two printed paperboard mono cartons for a capsule medicine",
+    src: "/images/products/mono-cartons-beauty.webp",
+    alt: "Paperboard mono cartons and packaging components for consumer products",
     category: "products",
     ratio: "product",
-    width: 600,
-    height: 450,
+    width: 2333,
+    height: 1750,
   }),
-  "product-offset-printed-boxes": supplied({
+  "product-offset-printed-boxes": clientRef({
     id: "product-offset-printed-boxes",
-    src: "/images/products/printed-mailer-box.webp",
-    alt: "Open kraft mailer box with a printed bakery design inside the lid",
+    src: "/images/products/printed-kraft-packaging.webp",
+    alt: "Open kraft mailer box with offset-printed artwork inside the lid",
     category: "products",
     ratio: "product",
-    width: 1024,
-    height: 768,
+    width: 2400,
+    height: 1800,
   }),
-  "product-2-ply-paper-rolls": supplied({
+  "product-2-ply-paper-rolls": stock({
     id: "product-2-ply-paper-rolls",
-    src: "/images/products/single-face-corrugated-roll.webp",
-    alt: "Roll of 2-ply corrugated paper, partly unrolled to show the fluted side",
+    src: "/images/products/paper-reels.webp",
+    alt: "Large kraft paper reels stored in a packaging production hall",
     category: "products",
     ratio: "product",
-    width: 895,
-    height: 671,
+    width: 2400,
+    height: 1800,
   }),
-  "product-cello-tape": supplied({
+  "product-cello-tape": stock({
     id: "product-cello-tape",
-    src: "/images/products/cello-tape-sealed-carton.webp",
-    alt: "Clear cello tape sealing the top flaps of a corrugated carton",
+    src: "/images/products/cello-tape-sealing.webp",
+    alt: "Hands sealing a corrugated carton with clear packing tape",
     category: "products",
     ratio: "product",
-    width: 1160,
-    height: 870,
+    width: 2400,
+    height: 1800,
   }),
-  "industry-fruits-and-vegetables": supplied({
+  "industry-fruits-and-vegetables": stock({
     id: "industry-fruits-and-vegetables",
-    src: "/images/industries/fruits-vegetables-trays.webp",
-    alt: "Corrugated trays holding apples, carrots, cucumbers, tomatoes, oranges and peppers",
+    src: "/images/industries/fruit-produce-boxes.webp",
+    alt: "Stacks of corrugated produce boxes used for fruit and vegetables",
     category: "industries",
     ratio: "industry",
-    width: 699,
-    height: 524,
+    width: 2400,
+    height: 1800,
   }),
-  "industry-bakery": supplied({
+  "industry-bakery": stock({
     id: "industry-bakery",
-    src: "/images/products/printed-mailer-box.webp",
-    alt: "Kraft mailer box with a printed bakery design",
+    src: "/images/industries/bakery-dough.webp",
+    alt: "Hands kneading dough on a wooden bakery work surface",
     category: "industries",
     ratio: "industry",
-    width: 1024,
-    height: 768,
+    width: 2400,
+    height: 1800,
   }),
-  "industry-pharmaceuticals": supplied({
+  "industry-pharmaceuticals": stock({
     id: "industry-pharmaceuticals",
-    src: "/images/industries/pharmaceutical-cartons.webp",
-    alt: "Assorted printed cartons for medicines and healthcare products",
+    src: "/images/industries/pharma-packaging.webp",
+    alt: "White and coloured cartons stacked on warehouse shelving",
     category: "industries",
     ratio: "industry",
-    width: 830,
-    height: 622,
+    width: 2400,
+    height: 1800,
   }),
-  "industry-paints-and-chemicals": supplied({
+  "industry-paints-and-chemicals": stock({
     id: "industry-paints-and-chemicals",
-    src: "/images/industries/paint-printed-carton.webp",
-    alt: "Printed carton for a wood-finish paint product",
+    src: "/images/industries/paints-industrial.webp",
+    alt: "Worker in a hard hat beside large industrial machinery",
     category: "industries",
     ratio: "industry",
-    width: 1024,
-    height: 768,
+    width: 2400,
+    height: 1800,
   }),
-  "industry-fmcg-and-namkeen": supplied({
+  "industry-fmcg-and-namkeen": stock({
     id: "industry-fmcg-and-namkeen",
-    src: "/images/industries/closed-shipping-carton.webp",
-    alt: "Closed plain corrugated shipping carton",
+    src: "/images/industries/fmcg-boxed-goods.webp",
+    alt: "Warehouse worker reviewing stacked corrugated shipping boxes",
     category: "industries",
     ratio: "industry",
-    width: 938,
-    height: 704,
+    width: 2400,
+    height: 1800,
   }),
-  "industry-confectionery": supplied({
+  "industry-confectionery": stock({
     id: "industry-confectionery",
-    src: "/images/industries/confectionery-cupcake-mailer.webp",
-    alt: "Red printed mailer box holding six chocolate cupcakes",
+    src: "/images/industries/confectionery-pasta.webp",
+    alt: "Close view of dry pasta shapes suggesting food packaging needs",
     category: "industries",
     ratio: "industry",
-    width: 612,
-    height: 459,
+    width: 2400,
+    height: 1800,
   }),
-  "industry-industrial-manufacturing": supplied({
+  "industry-industrial-manufacturing": stock({
     id: "industry-industrial-manufacturing",
-    src: "/images/industries/heavy-duty-carton-handles.webp",
-    alt: "Heavy-duty corrugated box with hand holes and a hinged lid",
+    src: "/images/industries/industrial-manufacturing.webp",
+    alt: "Factory worker inspecting heavy industrial equipment",
     category: "industries",
     ratio: "industry",
-    width: 1600,
-    height: 1200,
+    width: 2400,
+    height: 1800,
   }),
-  "industry-ecommerce-and-logistics": supplied({
+  "industry-ecommerce-and-logistics": stock({
     id: "industry-ecommerce-and-logistics",
-    src: "/images/industries/labelled-shipping-carton.webp",
-    alt: "Shipping carton marked with handling symbols and a barcode label",
+    src: "/images/industries/ecommerce-logistics.webp",
+    alt: "Delivery van being loaded with corrugated shipping boxes",
     category: "industries",
     ratio: "industry",
-    width: 800,
-    height: 600,
+    width: 2400,
+    height: 1800,
   }),
-  "process-paper-reel-selection": supplied({
+  "process-paper-reel-selection": stock({
     id: "process-paper-reel-selection",
-    src: "/images/products/single-face-corrugated-roll.webp",
-    alt: "Roll of corrugated paper with the fluted side partly unrolled",
+    src: "/images/manufacturing/01-paper-reels.webp",
+    alt: "Paper reels staged for packaging production",
     category: "manufacturing",
     ratio: "product",
-    width: 895,
-    height: 671,
+    width: 2400,
+    height: 1800,
   }),
-  "process-corrugation": supplied({
+  "process-corrugation": clientRef({
     id: "process-corrugation",
-    src: "/images/machinery/single-facer-corrugator.webp",
-    alt: "Single facer corrugating machine with corrugating rolls and a suction blower",
+    src: "/images/manufacturing/02-corrugation.webp",
+    alt: "Single facer corrugating machine with rolls and suction unit",
     category: "manufacturing",
     ratio: "product",
-    width: 1080,
-    height: 810,
+    width: 2400,
+    height: 1800,
   }),
-  "process-pasting": supplied({
+  "process-pasting": stock({
     id: "process-pasting",
-    src: "/images/machinery/single-facer-rolls-detail.webp",
-    alt: "Roll section of a single facer, where the fluted medium is glued to the liner",
+    src: "/images/manufacturing/03-pasting-board-layers.webp",
+    alt: "Close view of corrugated board layers showing fluting and liners",
     category: "manufacturing",
     ratio: "product",
-    width: 750,
-    height: 562,
+    width: 2400,
+    height: 1800,
   }),
-  "process-creasing": supplied({
+  "process-creasing": clientRef({
     id: "process-creasing",
-    src: "/images/machinery/rotary-slotter.webp",
-    alt: "Rotary slotter with creasing and slotting wheels for corrugated board",
+    src: "/images/manufacturing/04-creasing-slotter.webp",
+    alt: "Rotary slotter with creasing and slotting wheels for board conversion",
     category: "manufacturing",
     ratio: "product",
-    width: 1512,
-    height: 1134,
+    width: 2400,
+    height: 1800,
   }),
-  "process-printing-conversion": supplied({
+  "process-printing-conversion": clientRef({
     id: "process-printing-conversion",
-    src: "/images/machinery/printer-slotter-die-cutter.webp",
-    alt: "Printer slotter die-cutter with a stack of corrugated board on its feed table",
+    src: "/images/manufacturing/05-printing-conversion.webp",
+    alt: "Printer slotter converting corrugated board on a factory floor",
     category: "manufacturing",
     ratio: "product",
-    width: 1080,
-    height: 810,
+    width: 2400,
+    height: 1801,
   }),
-  "process-slotting-die-cutting": supplied({
+  "process-slotting-die-cutting": stock({
     id: "process-slotting-die-cutting",
-    src: "/images/machinery/platen-die-cutting-machine.webp",
-    alt: "Platen die-cutting machine for corrugated board and cartons",
+    src: "/images/manufacturing/06-die-cutting.webp",
+    alt: "Flatbed die-cutting and converting line for packaging blanks",
     category: "manufacturing",
     ratio: "product",
-    width: 500,
-    height: 375,
+    width: 2400,
+    height: 1800,
   }),
-  "process-stitching-pasting": supplied({
+  "process-stitching-pasting": clientRef({
     id: "process-stitching-pasting",
-    src: "/images/machinery/carton-stitching-machine.webp",
+    src: "/images/manufacturing/07-stitching.webp",
     alt: "Semi-automatic carton stitching machine on a factory floor",
     category: "manufacturing",
     ratio: "product",
-    width: 516,
-    height: 387,
+    width: 2064,
+    height: 1548,
   }),
-  "process-quality-inspection": supplied({
+  "process-quality-inspection": stock({
     id: "process-quality-inspection",
-    src: "/images/manufacturing/carton-flap-board-edge.webp",
-    alt: "Close view of the flaps and board edge of an open corrugated box",
+    src: "/images/manufacturing/08-quality-flute.webp",
+    alt: "Cut section of corrugated board showing flute profiles",
     category: "manufacturing",
-    ratio: "product",
-    width: 860,
-    height: 645,
-  }),
-  "process-bundling-packing": supplied({
-    id: "process-bundling-packing",
-    src: "/images/products/shipper-carton-with-partitions.webp",
-    alt: "Open carton with cardboard partitions, ready for packing",
-    category: "manufacturing",
-    ratio: "product",
-    width: 837,
-    height: 628,
-  }),
-  "process-dispatch": supplied({
-    id: "process-dispatch",
-    src: "/images/gallery/sealed-shipping-carton.webp",
-    alt: "Corrugated carton sealed with tape and stitched at the joint",
-    category: "dispatch",
     ratio: "product",
     width: 1600,
     height: 1200,
   }),
-  "gallery-factory": supplied({
+  "process-bundling-packing": stock({
+    id: "process-bundling-packing",
+    src: "/images/manufacturing/09-bundling-storage.webp",
+    alt: "Stacks of finished cartons stored in a packaging warehouse",
+    category: "manufacturing",
+    ratio: "product",
+    width: 2252,
+    height: 1688,
+  }),
+  "process-dispatch": stock({
+    id: "process-dispatch",
+    src: "/images/manufacturing/10-dispatch.webp",
+    alt: "Workers loading corrugated boxes into a delivery van",
+    category: "manufacturing",
+    ratio: "product",
+    width: 2400,
+    height: 1800,
+  }),
+  "facility-warehouse": stock({
+    id: "facility-warehouse",
+    src: "/images/factory/warehouse-aisle.webp",
+    alt: "Wide aisle between high industrial racks in a packaging warehouse",
+    category: "factory",
+    ratio: "hero",
+    width: 2400,
+    height: 1350,
+  }),
+  "gallery-factory": stock({
     id: "gallery-factory",
-    src: "/images/machinery/carton-stitching-machine.webp",
-    alt: "Carton stitching machine in a packaging factory hall",
+    src: "/images/gallery/factory-interior.webp",
+    alt: "Interior of a packaging production hall with paper reels and machinery",
     category: "factory",
     ratio: "product",
-    width: 516,
-    height: 387,
+    width: 2400,
+    height: 1800,
   }),
-  "gallery-machinery": supplied({
+  "gallery-machinery": stock({
     id: "gallery-machinery",
-    src: "/images/machinery/rotary-slotter.webp",
-    alt: "Rotary slotter machine for corrugated board",
+    src: "/images/gallery/machinery-die.webp",
+    alt: "Close view of a flat die-cutting tool used in packaging conversion",
     category: "machinery",
     ratio: "product",
-    width: 1512,
-    height: 1134,
+    width: 2400,
+    height: 1800,
   }),
-  "gallery-manufacturing": supplied({
+  "gallery-manufacturing": stock({
     id: "gallery-manufacturing",
-    src: "/images/machinery/platen-die-cutting-machine.webp",
-    alt: "Platen die-cutting machine for corrugated board and cartons",
+    src: "/images/gallery/manufacturing-process.webp",
+    alt: "Die-cutting process with rollers converting packaging material",
     category: "manufacturing",
     ratio: "product",
-    width: 500,
-    height: 375,
+    width: 2400,
+    height: 1800,
   }),
-  "gallery-products": supplied({
+  "gallery-products": stock({
     id: "gallery-products",
-    src: "/images/gallery/lidded-carton-with-handle.webp",
-    alt: "Corrugated box with a fitted lid and a hand hole",
+    src: "/images/gallery/products-board.webp",
+    alt: "Sheets of corrugated cardboard showing board structure",
     category: "products",
     ratio: "product",
-    width: 1000,
-    height: 750,
+    width: 2272,
+    height: 1704,
   }),
-  "gallery-packaging": supplied({
+  "gallery-packaging": stock({
     id: "gallery-packaging",
-    src: "/images/products/die-cut-mailer-boxes.webp",
-    alt: "Die-cut corrugated mailer boxes, flat and folded",
+    src: "/images/gallery/packaging-assortment.webp",
+    alt: "Assortment of corrugated boxes, sheets and flexible packaging",
     category: "packaging",
     ratio: "product",
-    width: 736,
-    height: 552,
+    width: 1570,
+    height: 1177,
   }),
-  "gallery-dispatch": supplied({
+  "gallery-dispatch": stock({
     id: "gallery-dispatch",
-    src: "/images/gallery/sealed-shipping-carton.webp",
-    alt: "Corrugated carton sealed with tape, ready for dispatch",
+    src: "/images/gallery/dispatch-conveyor.webp",
+    alt: "Corrugated cardboard sheets moving on a conveyor",
     category: "dispatch",
     ratio: "product",
-    width: 1600,
-    height: 1200,
+    width: 2304,
+    height: 1728,
   }),
 } satisfies Record<string, MediaAsset>;
 
@@ -344,5 +355,5 @@ export function getVideo(id: VideoId): VideoAsset {
 }
 
 export function isAssignableMedia(asset: MediaAsset) {
-  return (asset.origin === "fidvi" || asset.origin === "client") && asset.src !== null;
+  return (asset.origin === "fidvi" || asset.origin === "client" || asset.origin === "stock") && asset.src !== null;
 }

@@ -24,13 +24,13 @@ export type MediaRatio = keyof typeof mediaRatios;
 
 /**
  * fidvi — confirmed FIDVI photograph. Safe to describe as the facility or product.
- * client — photograph supplied by the client for the site. Rendered. Alt text describes
- *   what it shows and does not claim it as the FIDVI facility, machinery or product.
+ * client — client-supplied reference photograph (may be enhanced). Rendered. Not claimed as FIDVI.
+ * stock — free stock / Wikimedia photograph. Rendered. Not claimed as FIDVI.
  * reference — client reference. Must not be labeled as a FIDVI product or factory.
  * placeholder — stand-in image. Never describe it as the FIDVI facility or a FIDVI product.
  * unassigned — slot reserved. Render the empty frame, not a stock stand-in.
  */
-export type MediaOrigin = "fidvi" | "client" | "reference" | "placeholder" | "unassigned";
+export type MediaOrigin = "fidvi" | "client" | "stock" | "reference" | "placeholder" | "unassigned";
 
 export type MediaAsset = {
   id: string;
