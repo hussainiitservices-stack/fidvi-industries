@@ -7,8 +7,8 @@ Photographs on this site come from free stock libraries, Wikimedia Commons, and 
 | `/images/hero/packaging-factory-floor.webp` | Client reference photo (enhanced) | Client-supplied reference; vendor marks removed; Real-ESRGAN upscaled | Client reference |
 | `/images/products/corrugated-box-open.webp` | Karolina Grabowska / Pexels | https://www.pexels.com/photo/4498152/ | Pexels License |
 | `/images/products/shipper-cartons-warehouse.webp` | Client reference photo | Client-supplied catalogue reference; Lanczos upscale only (no ESRGAN) | Client reference |
-| `/images/products/die-cut-flat-boxes.webp` | cottonbro studio / Pexels | https://www.pexels.com/photo/4464817/ | Pexels License |
-| `/images/products/mono-cartons-beauty.webp` | Karolina Grabowska / Pexels | https://www.pexels.com/photo/4464887/ | Pexels License |
+| `/images/products/die-cut-flat-boxes.webp` | Client reference photo | Client-supplied WhatsApp catalogue reference (assembled mailer + flat die-cut blank); Lanczos upscale only | Client reference |
+| `/images/products/mono-cartons-plain.webp` | Alexas_Fotos / Pixabay | https://pixabay.com/photos/cardboard-boxes-cardboard-packaging-3110034/ | Pixabay Content License |
 | `/images/products/printed-kraft-packaging.webp` | Client reference photo | Client-supplied catalogue reference; Lanczos upscale only (no ESRGAN) | Client reference |
 | `/images/products/paper-reels.webp` | Bdx / Wikimedia Commons | https://commons.wikimedia.org/wiki/File:Ndawara_packaging_production_unit,_production_of_cardboard_boxes_(02).JPG | CC BY-SA 4.0 |
 | `/images/products/cello-tape-sealing.webp` | Ketut Subiyanto / Pexels | https://www.pexels.com/photo/4246120/ | Pexels License |
