@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import { X } from "lucide-react";
 
 type MobileMenuProps = {
   open: boolean;
@@ -42,10 +43,11 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         <button
           ref={closeRef}
           type="button"
-          className="inline-flex min-h-11 items-center font-sans text-label uppercase transition-colors duration-300 hover:text-gold"
+          className="inline-flex size-11 items-center justify-center text-white transition-colors duration-300 hover:text-gold"
           onClick={onClose}
         >
-          Close
+          <span className="sr-only">Close menu</span>
+          <X aria-hidden strokeWidth={1.25} className="size-5" />
         </button>
       </div>
       <nav aria-label="Mobile" className="flex flex-1 flex-col justify-center overflow-y-auto px-[var(--spacing-gutter)] py-6">

@@ -9,7 +9,7 @@ export function Facility() {
       <Container>
         <div className="relative min-h-[20rem] overflow-hidden md:min-h-[26rem]">
           <MediaImage
-            mediaId="hero-facility"
+            mediaId="facility-warehouse"
             fill
             sizes="100vw"
             objectPosition="center 35%"

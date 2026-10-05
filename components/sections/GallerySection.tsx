@@ -11,7 +11,7 @@ export function GallerySection() {
           <h2 className="font-display text-section font-medium">
             Material, Machinery, Packaging.
           </h2>
-          <p className="font-sans text-label uppercase text-muted">Placeholder imagery</p>
+          <p className="font-sans text-label uppercase text-muted">Representative imagery</p>
         </div>
         <div className="mt-8">
           <GalleryGrid items={galleryEntries} />

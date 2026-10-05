@@ -26,6 +26,11 @@ export function ProcessStep({
         <p className={cn("mt-5 max-w-md text-lg leading-relaxed", dark ? "text-white/70" : "text-muted")}>
           {step.summary}
         </p>
+        {step.detail ? (
+          <p className={cn("mt-4 max-w-md text-sm leading-relaxed", dark ? "text-white/55" : "text-muted")}>
+            {step.detail}
+          </p>
+        ) : null}
       </article>
     );
   }
@@ -49,9 +54,16 @@ export function ProcessStep({
         {step.title}
       </h3>
       {emphasis === "stack" ? (
-        <p className={cn("mt-3 max-w-md text-base leading-relaxed", dark ? "text-white/65" : "text-muted")}>
-          {step.summary}
-        </p>
+        <>
+          <p className={cn("mt-3 max-w-md text-base leading-relaxed", dark ? "text-white/65" : "text-muted")}>
+            {step.summary}
+          </p>
+          {step.detail ? (
+            <p className={cn("mt-3 max-w-md text-sm leading-relaxed", dark ? "text-white/50" : "text-muted")}>
+              {step.detail}
+            </p>
+          ) : null}
+        </>
       ) : null}
     </article>
   );
