@@ -6,7 +6,11 @@ import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { MediaImage } from "@/components/media/MediaImage";
 import { ProductCard } from "@/components/products/ProductCard";
+import { EnquiryGuide } from "@/components/sections/EnquiryGuide";
+import { CrossLinks } from "@/components/sections/CrossLinks";
 import { getProduct, getRelatedProducts, products } from "@/data/products";
+import { customizationAreas } from "@/data/customization";
+import { confirmedCapabilities } from "@/data/manufacturing";
 
 type ProductPageProps = PageProps<"/products/[slug]">;
 
@@ -45,10 +49,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div className="lg:col-span-7">
               <p className="font-display text-5xl text-gold">{product.number}</p>
               <h1 className="mt-3 font-display text-section font-medium">{product.name}</h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{product.description}</p>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+                {product.description}
+              </p>
             </div>
             <div className="lg:col-span-5">
-              <MediaImage mediaId={product.mediaId} priority sizes="(min-width: 1024px) 40vw, 100vw" />
+              <MediaImage
+                mediaId={product.mediaId}
+                priority
+                sizes="(min-width: 1024px) 40vw, 100vw"
+              />
             </div>
           </div>
         </Container>
@@ -78,13 +88,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </ul>
             ) : (
               <p className="mt-6 text-muted">
-                Options for this product are confirmed against the requirement. Share the details in an enquiry.
+                Options for this product are confirmed against the requirement. Share
+                the details in an enquiry.
               </p>
             )}
             {product.variants ? (
-              <ul className="mt-6 flex gap-3">
+              <ul className="mt-6 flex flex-wrap gap-3">
                 {product.variants.map((variant) => (
-                  <li key={variant.slug} className="border border-border px-3 py-2 font-sans text-label uppercase">
+                  <li
+                    key={variant.slug}
+                    className="border border-border px-3 py-2 font-sans text-label uppercase"
+                  >
                     {variant.name}
                   </li>
                 ))}
@@ -93,6 +107,46 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </Container>
       </Section>
+
+      <Section tone="dark">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <p className="font-sans text-label uppercase text-gold">Customization</p>
+              <h2 className="mt-4 font-display text-section font-medium">
+                Built Around Your Brief.
+              </h2>
+              <p className="mt-5 max-w-md leading-relaxed text-white/65">
+                Size, strength, printing, structure and finishing can be discussed for
+                this format. Confirmed manufacturing capabilities support the work —
+                exact grades are set against the order.
+              </p>
+            </div>
+            <dl className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
+              {customizationAreas.map((area) => (
+                <div key={area.id} className="border-t border-white/15 pt-4">
+                  <dt className="font-sans text-label uppercase">{area.label}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-white/65">
+                    {area.description}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <ul className="mt-12 flex flex-wrap gap-3 border-t border-white/15 pt-8">
+            {confirmedCapabilities.map((item) => (
+              <li
+                key={item}
+                className="border border-white/20 px-3 py-2 font-sans text-label uppercase text-white/80"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      <EnquiryGuide />
 
       <Section tone="dark">
         <Container className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
@@ -115,6 +169,27 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </Container>
       </Section>
+
+      <CrossLinks
+        title="Next steps."
+        links={[
+          {
+            href: "/industries",
+            label: "Industries",
+            description: "Match the format to an application.",
+          },
+          {
+            href: "/manufacturing",
+            label: "Manufacturing",
+            description: "See the process behind this product.",
+          },
+          {
+            href: "/contact",
+            label: "Contact",
+            description: "Send dimensions, structure and quantity.",
+          },
+        ]}
+      />
     </>
   );
 }

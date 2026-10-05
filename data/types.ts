@@ -46,6 +46,7 @@ export type ProcessStep = {
   slug: string;
   title: string;
   summary: string;
+  detail?: string;
   mediaId: MediaId;
 };
 
