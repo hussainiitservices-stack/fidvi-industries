@@ -12,22 +12,39 @@ import { Container } from "./Container";
 
 export function Header() {
   const pathname = usePathname();
+  const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
-  const [solid, setSolid] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
+    if (!isHome) return;
+
+    const hero = document.getElementById("site-hero");
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) return;
+        setPastHero(!entry.isIntersecting || entry.intersectionRatio < 0.45);
+      },
+      { threshold: [0, 0.25, 0.45, 0.7, 1] },
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, [isHome]);
+
+  useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       const delta = y - lastY.current;
-      setSolid(y > 8);
-      if (open || y < 8) {
+      if (open || y < 24) {
         setHidden(false);
-      } else if (delta > 6) {
+      } else if (delta > 8) {
         setHidden(true);
-      } else if (delta < -6) {
+      } else if (delta < -8) {
         setHidden(false);
       }
       lastY.current = y;
@@ -44,20 +61,27 @@ export function Header() {
     };
   }, [open]);
 
-  const overHero = pathname === "/" && !solid;
+  // Inner pages are never over the home hero → always solid readable chrome when shown.
+  const overHero = isHome && !pastHero;
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-40 border-b transition-[translate,color,background-color,border-color] duration-500 ease-[var(--ease-fidvi)]",
+        "fixed inset-x-0 top-0 z-40 border-b transition-[translate,color,background-color,border-color,backdrop-filter] duration-500 ease-[var(--ease-fidvi)]",
         hidden ? "-translate-y-full" : "translate-y-0",
         overHero
-          ? "border-transparent bg-transparent text-white"
-          : "border-border bg-white text-black",
+          ? "border-white/10 bg-black/70 text-white shadow-[0_8px_32px_rgba(0,0,0,0.25)] backdrop-blur-xl supports-[backdrop-filter]:bg-black/60"
+          : "border-border bg-white/95 text-black shadow-[0_1px_0_rgba(11,11,11,0.04)] backdrop-blur-md",
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-6 md:h-20">
-        <Link href="/" className="font-display text-2xl tracking-wide">
+        <Link
+          href="/"
+          className={cn(
+            "font-display text-2xl tracking-wide",
+            overHero && "drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]",
+          )}
+        >
           {company.wordmark}
         </Link>
 
@@ -74,7 +98,7 @@ export function Header() {
                   overHero
                     ? current
                       ? "text-white"
-                      : "text-white/80"
+                      : "text-white/90"
                     : current
                       ? "text-black"
                       : "text-charcoal",
@@ -98,14 +122,19 @@ export function Header() {
             href={contactCta.href}
             className={cn(
               "hidden h-12 min-h-12 items-center border px-5 font-sans text-label uppercase transition-colors duration-300 hover:border-gold hover:text-gold lg:inline-flex",
-              overHero ? "border-white" : "border-black",
+              overHero
+                ? "border-white/85 bg-white/10 text-white hover:bg-white/15"
+                : "border-black",
             )}
           >
             {contactCta.label}
           </Link>
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center lg:hidden"
+            className={cn(
+              "inline-flex size-11 items-center justify-center lg:hidden",
+              overHero && "text-white",
+            )}
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen(true)}

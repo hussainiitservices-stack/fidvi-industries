@@ -21,8 +21,9 @@ export default function TermsPage() {
             specification.
           </p>
           <p>
-            Product options, dimensions and finishes are confirmed only after an enquiry. Photographs
-            marked as placeholders are not pictures of the FIDVI facility or of FIDVI products.
+            Product options, dimensions and finishes are confirmed only after an enquiry. Photographs on
+            this website are representative and are not necessarily pictures of the FIDVI facility,
+            its machinery or FIDVI products.
           </p>
           <p>
             Content is provided for general information. Packaging requirements should be discussed

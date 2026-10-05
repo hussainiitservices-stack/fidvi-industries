@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/cn";
+import { ChevronDown } from "lucide-react";
 import { useId, useState } from "react";
 
 export type AccordionItem = {
@@ -37,9 +38,14 @@ export function Accordion({ items, className }: AccordionProps) {
                 onClick={() => setOpenId(open ? null : item.id)}
               >
                 <span>{item.question}</span>
-                <span aria-hidden className="text-gold">
-                  {open ? "–" : "+"}
-                </span>
+                <ChevronDown
+                  aria-hidden
+                  className={cn(
+                    "size-4 shrink-0 text-gold transition-transform duration-[var(--duration-accordion)] ease-[var(--ease-fidvi)] motion-reduce:transition-none",
+                    open && "rotate-180",
+                  )}
+                  strokeWidth={1.35}
+                />
               </button>
             </h3>
             <div
@@ -47,7 +53,7 @@ export function Accordion({ items, className }: AccordionProps) {
               role="region"
               aria-labelledby={buttonId}
               data-open={open}
-              className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-[var(--duration-accordion)] ease-[var(--ease-fidvi)] data-[open=true]:grid-rows-[1fr]"
+              className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-[var(--duration-accordion)] ease-[var(--ease-fidvi)] motion-reduce:transition-none data-[open=true]:grid-rows-[1fr]"
             >
               <div className="overflow-hidden">
                 <p className="max-w-3xl pb-5 text-muted">{item.answer}</p>
