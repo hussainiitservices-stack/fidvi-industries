@@ -72,8 +72,19 @@ export function Footer() {
           </a>
         </div>
       </Container>
-      <Container className="border-t border-white/15 py-6 text-sm text-muted">
-        © {year} {company.legalName}
+      <Container className="flex flex-col gap-3 border-t border-white/15 py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+        <p>© {year} {company.legalName}</p>
+        <p>
+          Designed and developed by{" "}
+          <a
+            href="https://www.hussainiitservices.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/80 underline decoration-white/30 underline-offset-4 hover:text-gold hover:decoration-gold"
+          >
+            Hussaini IT Services
+          </a>
+        </p>
       </Container>
     </footer>
   );
