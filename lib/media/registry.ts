@@ -49,7 +49,7 @@ export const mediaRegistry = {
   "product-die-cut-cartons": clientRef({
     id: "product-die-cut-cartons",
     src: "/images/products/die-cut-flat-boxes.webp",
-    alt: "Die-cut corrugated mailer boxes, one assembled and one as a flat blank",
+    alt: "Open unbranded kraft corrugated mailer box with flaps folded out",
     category: "products",
     ratio: "product",
     width: 2208,
@@ -58,7 +58,7 @@ export const mediaRegistry = {
   "product-mono-cartons": stock({
     id: "product-mono-cartons",
     src: "/images/products/mono-cartons-beauty.webp",
-    alt: "Paperboard mono cartons and packaging components for consumer products",
+    alt: "Plain unbranded white paperboard mono cartons on a marble surface",
     category: "products",
     ratio: "product",
     width: 2333,
@@ -67,7 +67,7 @@ export const mediaRegistry = {
   "product-offset-printed-boxes": clientRef({
     id: "product-offset-printed-boxes",
     src: "/images/products/printed-kraft-packaging.webp",
-    alt: "Open kraft mailer box with offset-printed artwork inside the lid",
+    alt: "Open kraft mailer box with bakery-themed offset print inside the lid",
     category: "products",
     ratio: "product",
     width: 2400,
@@ -76,7 +76,7 @@ export const mediaRegistry = {
   "product-2-ply-paper-rolls": stock({
     id: "product-2-ply-paper-rolls",
     src: "/images/products/paper-reels.webp",
-    alt: "Large kraft paper reels stored in a packaging production hall",
+    alt: "Brown kraft paper reels mounted on a packaging production machine",
     category: "products",
     ratio: "product",
     width: 2400,
@@ -94,7 +94,7 @@ export const mediaRegistry = {
   "industry-fruits-and-vegetables": stock({
     id: "industry-fruits-and-vegetables",
     src: "/images/industries/fruit-produce-boxes.webp",
-    alt: "Stacks of corrugated produce boxes used for fruit and vegetables",
+    alt: "Fresh tomatoes and vegetables in plain unbranded corrugated boxes",
     category: "industries",
     ratio: "industry",
     width: 2400,
@@ -103,7 +103,7 @@ export const mediaRegistry = {
   "industry-bakery": stock({
     id: "industry-bakery",
     src: "/images/industries/bakery-dough.webp",
-    alt: "Hands kneading dough on a wooden bakery work surface",
+    alt: "Jam-filled pastries packed in kraft paperboard bakery boxes",
     category: "industries",
     ratio: "industry",
     width: 2400,
@@ -121,7 +121,7 @@ export const mediaRegistry = {
   "industry-paints-and-chemicals": stock({
     id: "industry-paints-and-chemicals",
     src: "/images/industries/paints-industrial.webp",
-    alt: "Worker in a hard hat beside large industrial machinery",
+    alt: "Spray paint cans packed in open corrugated cardboard boxes",
     category: "industries",
     ratio: "industry",
     width: 2400,
@@ -139,7 +139,7 @@ export const mediaRegistry = {
   "industry-confectionery": stock({
     id: "industry-confectionery",
     src: "/images/industries/confectionery-pasta.webp",
-    alt: "Close view of dry pasta shapes suggesting food packaging needs",
+    alt: "Indian mithai sweets packed in a paperboard confectionery box",
     category: "industries",
     ratio: "industry",
     width: 2400,
@@ -166,7 +166,7 @@ export const mediaRegistry = {
   "process-paper-reel-selection": stock({
     id: "process-paper-reel-selection",
     src: "/images/manufacturing/01-paper-reels.webp",
-    alt: "Paper reels staged for packaging production",
+    alt: "Jumbo kraft paper reels staged on a packaging factory floor",
     category: "manufacturing",
     ratio: "product",
     width: 2400,
@@ -175,7 +175,7 @@ export const mediaRegistry = {
   "process-corrugation": clientRef({
     id: "process-corrugation",
     src: "/images/manufacturing/02-corrugation.webp",
-    alt: "Single facer corrugating machine with rolls and suction unit",
+    alt: "Corrugating and converting machine with conveyor on a factory floor",
     category: "manufacturing",
     ratio: "product",
     width: 2400,
@@ -301,7 +301,7 @@ export const mediaRegistry = {
   "gallery-packaging": stock({
     id: "gallery-packaging",
     src: "/images/gallery/packaging-assortment.webp",
-    alt: "Assortment of corrugated boxes, sheets and flexible packaging",
+    alt: "Corrugated shipping boxes sealed with packing tape on a floor",
     category: "packaging",
     ratio: "product",
     width: 1570,
