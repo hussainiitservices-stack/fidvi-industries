@@ -12,6 +12,32 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { products } from "@/data/products";
 import { faqs } from "@/data/faqs";
 
+import { IconMark } from "@/components/ui/IconMark";
+import { Layers, Package, Printer, Scissors, type LucideIcon } from "lucide-react";
+
+const howToChoose: { icon: LucideIcon; label: string; detail: string }[] = [
+  {
+    icon: Package,
+    label: "Corrugated & shippers",
+    detail: "Protection, stackability and logistics.",
+  },
+  {
+    icon: Scissors,
+    label: "Die-cut cartons",
+    detail: "When the pack needs a specific shape.",
+  },
+  {
+    icon: Printer,
+    label: "Mono & printed boxes",
+    detail: "When presentation matters on shelf or delivery.",
+  },
+  {
+    icon: Layers,
+    label: "Paper rolls & tape",
+    detail: "Downstream conversion stock and sealing finish.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Products",
   description:
@@ -45,15 +71,19 @@ export default function ProductsPage() {
               Start With the Requirement.
             </h2>
           </div>
-          <div className="space-y-5 text-lg leading-relaxed text-muted lg:col-span-7">
-            <p>
-              Corrugated boxes and shipper cartons suit protection, stackability and
-              logistics. Die-cut cartons follow a specific shape. Mono cartons and
-              offset printed boxes support presentation. 2-ply paper rolls feed
-              downstream conversion. Cello tape finishes packing — printed or
-              transparent.
-            </p>
-            <p>
+          <div className="space-y-6 lg:col-span-7">
+            <ul className="grid gap-4 sm:grid-cols-2">
+              {howToChoose.map((item) => (
+                <li key={item.label} className="flex gap-3 border border-border p-4">
+                  <IconMark icon={item.icon} />
+                  <div>
+                    <p className="font-display text-xl leading-tight">{item.label}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-muted">{item.detail}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm leading-relaxed text-muted">
               Exact board grades, flute types, GSM and run sizes are confirmed against
               each enquiry rather than published as fixed catalogue claims.
             </p>

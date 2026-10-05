@@ -2,6 +2,7 @@ import { company, formatAddress } from "@/data/company";
 import { facilityMap } from "@/data/location";
 import { footerNavigation, products } from "@/data";
 import { Container } from "./Container";
+import { MapPin, Navigation } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -46,19 +47,27 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          <address className="mt-8 text-sm not-italic leading-relaxed text-white/80">
-            {formatAddress("stacked").map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
+          <address className="mt-8 flex gap-3 text-sm not-italic leading-relaxed text-white/80">
+            <MapPin
+              aria-hidden
+              className="mt-0.5 size-4 shrink-0 text-gold"
+              strokeWidth={1.35}
+            />
+            <span>
+              {formatAddress("stacked").map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </span>
           </address>
           <a
             href={facilityMap.directionsHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex min-h-11 items-center font-sans text-label uppercase text-white/80 hover:text-gold"
+            className="mt-4 inline-flex min-h-11 items-center gap-2 font-sans text-label uppercase text-white/80 hover:text-gold"
           >
+            <Navigation aria-hidden className="size-3.5 text-gold" strokeWidth={1.35} />
             View on Maps
           </a>
         </div>

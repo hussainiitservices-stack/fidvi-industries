@@ -16,9 +16,9 @@ Photographs on this site come from free stock libraries, Wikimedia Commons, and 
 | `/images/industries/bakery-dough.webp` | Pexels | https://www.pexels.com/photo/17244955/ | Pexels License |
 | `/images/industries/pharma-packaging.webp` | Unsplash | https://unsplash.com/photos/CBTmEZqUaM0 | Unsplash License |
 | `/images/industries/paints-industrial.webp` | cottonbro studio / Pexels | https://www.pexels.com/photo/7120518/ | Pexels License |
-| `/images/industries/fmcg-boxed-goods.webp` | Tima Miroshnichenko / Pexels | https://www.pexels.com/photo/6169659/ | Pexels License |
+| `/images/industries/fmcg-boxed-goods.webp` | Lance Cheung / U.S. Department of Agriculture | https://commons.wikimedia.org/wiki/File:Food_box_packing_facility.jpg | Public Domain (US Government work) |
 | `/images/industries/confectionery-pasta.webp` | Pexels | https://www.pexels.com/photo/19151502/ | Pexels License |
-| `/images/industries/industrial-manufacturing.webp` | Pexels | https://www.pexels.com/photo/2760243/ | Pexels License |
+| `/images/industries/industrial-manufacturing.webp` | Adrian Sulyok / Unsplash | https://unsplash.com/photos/1586528116311-ad8dd3c8310d | Unsplash License |
 | `/images/industries/ecommerce-logistics.webp` | Pexels | https://www.pexels.com/photo/4391470/ | Pexels License |
 | `/images/manufacturing/01-paper-reels.webp` | Bdx / Wikimedia Commons | https://commons.wikimedia.org/wiki/File:Ndawara_packaging_production_unit,_production_of_cardboard_boxes_(01).JPG | CC BY-SA 4.0 |
 | `/images/manufacturing/02-corrugation.webp` | Bdx / Wikimedia Commons | https://commons.wikimedia.org/wiki/File:Ndawara_packaging_production_unit,_production_of_cardboard_boxes_(04).JPG | CC BY-SA 4.0 |

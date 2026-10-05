@@ -11,6 +11,28 @@ import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { confirmedCapabilities, manufacturingHeadline } from "@/data/manufacturing";
 import { faqs } from "@/data/faqs";
+import { IconMark } from "@/components/ui/IconMark";
+import {
+  Boxes,
+  Layers,
+  Package,
+  Printer,
+  Ruler,
+  Scissors,
+  type LucideIcon,
+} from "lucide-react";
+
+const capabilityIcons: Record<string, LucideIcon> = {
+  Corrugation: Layers,
+  Pasting: Package,
+  Creasing: Ruler,
+  Slotting: Scissors,
+  Stitching: Package,
+  "Die Cutting": Scissors,
+  Printing: Printer,
+  "Customized Sizes": Ruler,
+  "Bulk Manufacturing": Boxes,
+};
 
 export const metadata: Metadata = {
   title: "Manufacturing",
@@ -45,11 +67,18 @@ export default function ManufacturingPage() {
             </p>
           </div>
           <ul className="mt-10 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {confirmedCapabilities.map((item) => (
-              <li key={item} className="bg-white px-5 py-6 font-sans text-label uppercase">
-                {item}
-              </li>
-            ))}
+            {confirmedCapabilities.map((item) => {
+              const Icon = capabilityIcons[item] ?? Package;
+              return (
+                <li
+                  key={item}
+                  className="flex items-center gap-3 bg-white px-5 py-6 font-sans text-label uppercase"
+                >
+                  <IconMark icon={Icon} />
+                  <span>{item}</span>
+                </li>
+              );
+            })}
           </ul>
         </Container>
       </Section>

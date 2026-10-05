@@ -6,9 +6,9 @@ const crops = [
   "center 40%", // bakery — pastries in kraft box
   "center 35%", // pharmaceuticals — warehouse aisle
   "center center", // paints & chemicals — top-down cans
-  "center 30%", // FMCG — worker with boxes
+  "center 55%", // FMCG — palletized food shipper cartons
   "center 40%", // confectionery — sweets in box
-  "center 35%", // industrial manufacturing — worker + machine
+  "center 40%", // industrial manufacturing — cartons + component bins
   "center 50%", // ecommerce & logistics — van loading
 ];
 

@@ -130,7 +130,7 @@ export const mediaRegistry = {
   "industry-fmcg-and-namkeen": stock({
     id: "industry-fmcg-and-namkeen",
     src: "/images/industries/fmcg-boxed-goods.webp",
-    alt: "Warehouse worker reviewing stacked corrugated shipping boxes",
+    alt: "Food packing floor with palletized corrugated shipper cartons ready for dispatch",
     category: "industries",
     ratio: "industry",
     width: 2400,
@@ -148,7 +148,7 @@ export const mediaRegistry = {
   "industry-industrial-manufacturing": stock({
     id: "industry-industrial-manufacturing",
     src: "/images/industries/industrial-manufacturing.webp",
-    alt: "Factory worker inspecting heavy industrial equipment",
+    alt: "Industrial warehouse racks with corrugated cartons and component bins",
     category: "industries",
     ratio: "industry",
     width: 2400,
