@@ -5,6 +5,7 @@ import { Section } from "@/components/layout/Section";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { WhyFidvi } from "@/components/sections/WhyFidvi";
 import { FacilityLocation } from "@/components/location/FacilityLocation";
+import { ImageSplit } from "@/components/sections/ImageSplit";
 import { CrossLinks } from "@/components/sections/CrossLinks";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { company, formatAddress } from "@/data/company";
@@ -31,9 +32,9 @@ export default function AboutPage() {
               {company.supportingLine}
             </p>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
-              {company.legalName} manufactures corrugated and paper-based packaging
-              from an industrial facility in Ujjain. Packaging is the starting line;
-              the brand leaves room for broader manufacturing work over time.
+              {company.legalName} manufactures corrugated and paper-based packaging from
+              an industrial facility in Ujjain. Packaging is the starting line; the brand
+              leaves room for broader manufacturing work over time.
             </p>
             <p className="mt-5 max-w-xl font-display text-2xl text-charcoal md:text-3xl">
               {company.tagline}
@@ -54,8 +55,8 @@ export default function AboutPage() {
             </address>
             <p className="mt-6 text-sm leading-relaxed text-muted">
               Located in Nagzhiri Industrial Area, Ujjain, FIDVI operates from an
-              industrial manufacturing environment focused on packaging production
-              and customized manufacturing solutions.
+              industrial manufacturing environment focused on packaging production and
+              customized manufacturing solutions.
             </p>
             <ul className="mt-10 space-y-2 border-t border-border pt-6">
               {confirmedCapabilities.map((item) => (
@@ -67,6 +68,14 @@ export default function AboutPage() {
           </div>
         </Container>
       </Section>
+      <ImageSplit
+        mediaId="gallery-factory"
+        eyebrow="Industrial setting"
+        title="Built on the Factory Floor."
+        body="The website presents FIDVI as a manufacturer first — materials, machinery and finished packaging — not as a trading catalogue."
+        tone="dark"
+        objectPosition="center 30%"
+      />
       <WhyFidvi />
       <Section spacing={false} className="pb-[var(--spacing-section)]">
         <Container>
@@ -74,22 +83,22 @@ export default function AboutPage() {
         </Container>
       </Section>
       <CrossLinks
-        title="Explore the work."
+        title="Continue from here."
         links={[
           {
             href: "/quality",
             label: "Quality",
-            description: "How inspection is built into the process.",
+            description: "How inspection sits inside the process.",
           },
           {
             href: "/industries",
             label: "Industries",
-            description: "Applications FIDVI manufactures packaging for.",
+            description: "Applications packaging is manufactured for.",
           },
           {
             href: "/contact",
             label: "Contact",
-            description: "Send a packaging requirement for your business.",
+            description: "Send a packaging requirement.",
           },
         ]}
       />

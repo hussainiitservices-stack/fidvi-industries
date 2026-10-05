@@ -6,6 +6,7 @@ import { ProductGrid } from "@/components/products/ProductGrid";
 import { Customization } from "@/components/sections/Customization";
 import { EnquiryGuide } from "@/components/sections/EnquiryGuide";
 import { CrossLinks } from "@/components/sections/CrossLinks";
+import { ImageSplit } from "@/components/sections/ImageSplit";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { products } from "@/data/products";
@@ -59,11 +60,19 @@ export default function ProductsPage() {
           </div>
         </Container>
       </Section>
+      <ImageSplit
+        mediaId="gallery-packaging"
+        eyebrow="Formats in use"
+        title="Protection and Presentation."
+        body="From open corrugated shippers to folding cartons and sealing tape, each format is manufactured against the brief rather than sold as a fixed catalogue SKU."
+        tone="dark"
+        objectPosition="center"
+      />
       <Customization />
       <EnquiryGuide />
       <FaqSection items={productFaqs} title="Product questions." />
       <CrossLinks
-        title="From format to factory."
+        title="After you pick a format."
         links={[
           {
             href: "/industries",

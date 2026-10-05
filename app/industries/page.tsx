@@ -5,6 +5,7 @@ import { Section } from "@/components/layout/Section";
 import { IndustryGrid } from "@/components/industries/IndustryGrid";
 import { BuyerNeeds } from "@/components/sections/BuyerNeeds";
 import { CrossLinks } from "@/components/sections/CrossLinks";
+import { ImageSplit } from "@/components/sections/ImageSplit";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { industries } from "@/data/industries";
@@ -33,6 +34,14 @@ export default function IndustriesPage() {
           <IndustryGrid industries={industries} />
         </Container>
       </Section>
+      <ImageSplit
+        mediaId="industry-ecommerce-and-logistics"
+        eyebrow="Handling & transit"
+        title="Built for the Path It Travels."
+        body="Stackability, protection and presentation change by industry. The packaging structure is discussed against how goods are stored, shipped and received."
+        reverse
+        objectPosition="center 45%"
+      />
       <BuyerNeeds />
       <Section tone="dark">
         <Container className="grid gap-10 lg:grid-cols-12">
@@ -60,7 +69,7 @@ export default function IndustriesPage() {
       </Section>
       <FaqSection items={industryFaqs} title="Industry questions." />
       <CrossLinks
-        title="Connect the application to a format."
+        title="Match the use case to a format."
         links={[
           {
             href: "/products",

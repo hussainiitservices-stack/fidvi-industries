@@ -171,7 +171,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       </Section>
 
       <CrossLinks
-        title="Next steps."
+        title="Keep going from this format."
         links={[
           {
             href: "/industries",

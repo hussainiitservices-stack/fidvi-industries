@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { QualitySection } from "@/components/sections/QualitySection";
 import { QualityStance } from "@/components/sections/QualityStance";
+import { ImageSplit } from "@/components/sections/ImageSplit";
 import { CrossLinks } from "@/components/sections/CrossLinks";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -28,6 +29,13 @@ export default function QualityPage() {
         intro="Inspection sits inside the manufacturing sequence. No certification marks are shown here unless FIDVI provides them."
       />
       <QualitySection showHeader={false} />
+      <ImageSplit
+        mediaId="process-quality-inspection"
+        eyebrow="On the floor"
+        title="Checked Before It Leaves."
+        body="Finished packaging is reviewed for structural consistency — dimensions, assembly and print where it applies — before bundling and dispatch."
+        objectPosition="center 40%"
+      />
       <Section>
         <Container className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -44,10 +52,9 @@ export default function QualityPage() {
               separate claim.
             </p>
             <p>
-              Material is selected against the requirement. Creasing, slotting and
-              die cutting keep dimensions consistent. Where packaging is printed,
-              print consistency is part of the inspection. Pasting or stitching is
-              checked before bundling and dispatch.
+              Material is selected against the requirement. Creasing, slotting and die
+              cutting keep dimensions consistent. Where packaging is printed, print
+              consistency is part of the inspection.
             </p>
           </div>
         </Container>
@@ -55,22 +62,22 @@ export default function QualityPage() {
       <QualityStance />
       <FaqSection items={qualityFaqs} title="Quality & orders." />
       <CrossLinks
-        title="Related to how packaging is made."
+        title="See how the work is made."
         links={[
           {
             href: "/manufacturing",
             label: "Manufacturing",
-            description: "Follow the sequence from paper reel selection to dispatch.",
+            description: "The full sequence from paper reel to dispatch.",
           },
           {
             href: "/products",
             label: "Products",
-            description: "Seven packaging formats manufactured around the requirement.",
+            description: "Formats that go through these checks.",
           },
           {
             href: "/contact",
-            label: "Contact",
-            description: "Send company details and the packaging brief.",
+            label: "Enquire",
+            description: "Share the brief so quality can match the use case.",
           },
         ]}
       />

@@ -6,6 +6,7 @@ import { FacilityLocation } from "@/components/location/FacilityLocation";
 import { PageHero } from "@/components/sections/PageHero";
 import { EnquiryGuide } from "@/components/sections/EnquiryGuide";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { ImageSplit } from "@/components/sections/ImageSplit";
 import { CrossLinks } from "@/components/sections/CrossLinks";
 import { faqs } from "@/data/faqs";
 
@@ -32,8 +33,8 @@ export default function ContactPage() {
             </h2>
             <p className="mt-5 max-w-md leading-relaxed text-muted">
               The form validates in the browser. Phone, email and WhatsApp channels
-              appear here when FIDVI publishes them — nothing is transmitted from
-              this page until then.
+              appear here when FIDVI publishes them — nothing is transmitted from this
+              page until then.
             </p>
             <div className="mt-8 border-t border-border pt-6">
               <p className="font-sans text-label uppercase text-muted">Fields we ask for</p>
@@ -49,45 +50,50 @@ export default function ContactPage() {
         </Container>
       </Section>
       <EnquiryGuide tone="dark" />
+      <ImageSplit
+        mediaId="process-dispatch"
+        eyebrow="After you write"
+        title="From Brief to Dispatch."
+        body="Once the requirement is clear, packaging moves through manufacturing, inspection, bundling and dispatch from the Ujjain facility."
+        reverse
+        objectPosition="center 45%"
+      />
       <Section spacing={false} className="pb-[var(--spacing-section)] pt-[var(--spacing-section)]">
         <Container>
           <FacilityLocation />
         </Container>
       </Section>
-      <Section>
-        <Container className="grid gap-8 border border-border px-6 py-8 md:grid-cols-12 md:px-10 md:py-10">
-          <div className="md:col-span-4">
-            <p className="font-sans text-label uppercase text-muted">Channels</p>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl">Still unpublished</h2>
+      <Section tone="dark">
+        <Container className="grid gap-8 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-5">
+            <p className="font-sans text-label uppercase text-gold">Channels</p>
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">Not published yet</h2>
           </div>
-          <div className="md:col-span-8">
-            <p className="leading-relaxed text-muted">
-              Phone, email and WhatsApp are not published on this site yet. Business
-              hours are also not listed until FIDVI confirms them. Use the enquiry
-              form to prepare your requirement, and send it through the channel FIDVI
-              shares with you.
-            </p>
-          </div>
+          <p className="leading-relaxed text-white/65 md:col-span-7">
+            Phone, email, WhatsApp and business hours are not listed until FIDVI
+            confirms them. Prepare the enquiry here, then send it through the channel
+            FIDVI shares with you.
+          </p>
         </Container>
       </Section>
       <FaqSection items={faqs} title="Before you send." />
       <CrossLinks
-        title="Useful before you enquire."
+        title="Useful while you draft the brief."
         links={[
           {
             href: "/products",
             label: "Products",
-            description: "Confirm which format fits the brief.",
+            description: "Name the format in your requirement.",
           },
           {
             href: "/manufacturing",
             label: "Manufacturing",
-            description: "Understand how the order will be produced.",
+            description: "See how an order moves through the plant.",
           },
           {
             href: "/about",
             label: "About",
-            description: "Facility location and manufacturing stance.",
+            description: "Facility address and manufacturing stance.",
           },
         ]}
       />

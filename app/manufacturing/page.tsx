@@ -4,6 +4,7 @@ import { ManufacturingSection } from "@/components/sections/ManufacturingSection
 import { ManufacturingPrinciple } from "@/components/sections/ManufacturingPrinciple";
 import { Customization } from "@/components/sections/Customization";
 import { CrossLinks } from "@/components/sections/CrossLinks";
+import { ImageSplit } from "@/components/sections/ImageSplit";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { Container } from "@/components/layout/Container";
@@ -52,11 +53,19 @@ export default function ManufacturingPage() {
           </ul>
         </Container>
       </Section>
+      <ImageSplit
+        mediaId="process-corrugation"
+        eyebrow="Structural foundation"
+        title="Board Before the Box."
+        body="Corrugation and pasting create the board that later stages crease, print, slot or die-cut. The sequence is why FIDVI is positioned as a manufacturer."
+        reverse
+        objectPosition="center 40%"
+      />
       <Customization />
       <FaqSection items={mfgFaqs} title="Manufacturing questions." />
       <CrossLinks
         tone="light"
-        title="See what this process produces."
+        title="Where the process shows up."
         links={[
           {
             href: "/products",
