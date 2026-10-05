@@ -7,7 +7,7 @@ import { cn } from "@/lib/cn";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Container } from "./Container";
 
 export function Header() {
@@ -15,6 +15,8 @@ export function Header() {
   const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
   const [pastHero, setPastHero] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
@@ -35,18 +37,38 @@ export function Header() {
   }, [isHome]);
 
   useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+      if (open || y < 24) {
+        setHidden(false);
+      } else if (delta > 8) {
+        setHidden(true);
+      } else if (delta < -8) {
+        setHidden(false);
+      }
+      lastY.current = y;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [open]);
+
+  useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
+  // Inner pages are never over the home hero → always solid readable chrome when shown.
   const overHero = isHome && !pastHero;
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-40 border-b transition-[color,background-color,border-color,backdrop-filter] duration-500 ease-[var(--ease-fidvi)]",
+        "fixed inset-x-0 top-0 z-40 border-b transition-[translate,color,background-color,border-color,backdrop-filter] duration-500 ease-[var(--ease-fidvi)]",
+        hidden ? "-translate-y-full" : "translate-y-0",
         overHero
           ? "border-white/10 bg-black/70 text-white shadow-[0_8px_32px_rgba(0,0,0,0.25)] backdrop-blur-xl supports-[backdrop-filter]:bg-black/60"
           : "border-border bg-white/95 text-black shadow-[0_1px_0_rgba(11,11,11,0.04)] backdrop-blur-md",
